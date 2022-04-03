@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Escenes/Zona.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Escenes/Personatge.tscn" type="PackedScene" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Cercle" parent="." instance=ExtResource( 2 )]
+position = Vector2( 235, 173 )
+velocitat = 700
+
+[node name="Zona1" parent="." groups=["Inici"] instance=ExtResource( 1 )]
+position = Vector2( 890, 168 )
+rotation = 1.5708
+
+[node name="Zona2" parent="." groups=["Inici"] instance=ExtResource( 1 )]
+position = Vector2( 84, 169 )
+rotation = 1.5708
+
+[node name="Zona3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 810, 89 )
+scale = Vector2( 0.983281, 1.00665 )
+
+[connection signal="area_entered" from="Cercle" to="Cercle" method="_on_Node2D_area_entered"]
+[connection signal="area_exited" from="Cercle" to="Cercle" method="_on_Node2D_area_exited"]
